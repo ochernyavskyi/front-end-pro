@@ -5,11 +5,13 @@
     var manyYears = 'лет';
     var age = prompt("Сколько Вам лет?");
 
-    if (age == 1 || age % 10 == 1 && age > 11) {
+    if (age % 100 > 4 && age % 100 < 21) {
+        alert(`Вам ${age} ${manyYears}`);
+    } else if (age == 1 || age % 10 == 1) {
         alert(`Вам ${age} ${year}`);
-    } else if (age > 1 && age < 5 || age > 21 && age % 10 < 5 && age % 10 != 0) {
+    } else if (age % 10 >= 2 && age % 10 < 5) {
         alert(`Вам ${age} ${years}`);
-    } else if (age == 0 || age > 4) {
+    } else {
         alert(`Вам ${age} ${manyYears}`);
     }
 </script>
