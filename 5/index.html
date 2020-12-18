@@ -1,0 +1,22 @@
+<script>
+
+    function getFlagStatus(f) {
+        return !!(f);
+    }
+
+    function padString(text, count, char, f = 1) {
+        var res = text;
+        if (getFlagStatus(f)) {
+            for (var i = 0; i < count - text.length; i++) {
+                res += char;
+            }
+            return res;
+        } else {
+            res = '';
+            for (var i = 0; i < count - text.length; i++) {
+                res += char;
+            }
+            return res + text;
+        }
+    }
+</script>
