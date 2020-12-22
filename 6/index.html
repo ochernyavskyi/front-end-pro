@@ -1,1 +1,58 @@
-<script>    // Task 1    var cylinder = {        radius: 5,        height: 10,        getSquare: function () {            return Math.PI * this.radius ** 2 * this.height;        },        getVolume: function () {            return 2 * Math.PI * this.radius * this.height;        }    }    // Task 2    function getResult(x, y, operation) {        var res;        switch (operation) {            case '*':                return res = x * y;            case '+':                return res = x + y;            case '-':                return res = x - y;            case '/':                return res = x / y;            default:                alert('Undefined operation');        }    }    // Task3    function isCharPresent(string, symbol) {        var res = false;        for (var i = 0; i < string.length; i++) {            if (string[i] == symbol) {                res = true;            }        }        return res;    }    function charIndexOf(string, symbol) {        var res = -1;        for (var i = 0; i < string.length; i++) {            if (string[i] == symbol) {                return res = i;            }        }        return res;    }</script>
+<script>
+
+    // Task 1
+
+    var cylinder = {
+        radius: 5,
+        height: 10,
+        getSquare: function () {
+            return Math.PI * this.radius ** 2 * this.height;
+        },
+        getVolume: function () {
+            return 2 * Math.PI * this.radius * this.height;
+        }
+    }
+
+    // Task 2
+
+    function getResult(x, y, operation) {
+        var res;
+        switch (operation) {
+            case '*':
+                return res = x * y;
+            case '+':
+                return res = x + y;
+            case '-':
+                return res = x - y;
+            case '/':
+                return res = x / y;
+            default:
+                alert('Undefined operation');
+        }
+    }
+
+
+    // Task3
+
+    function isCharPresent(string, symbol) {
+        var res = false;
+        for (var i = 0; i < string.length; i++) {
+            if (string[i] == symbol) {
+                res = true;
+            }
+        }
+        return res;
+    }
+
+
+    function charIndexOf(string, symbol) {
+        var res = -1;
+        for (var i = 0; i < string.length; i++) {
+            if (string[i] == symbol) {
+                return res = i;
+            }
+        }
+        return res;
+    }
+
+</script>
