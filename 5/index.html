@@ -1,22 +1,11 @@
 <script>
 
-    function getFlagStatus(f) {
-        return !!(f);
+    function padString(text = '', count = 1, char, f = true) {
+        var res = '';
+        for (var i = 0; i < count - text.length; i++) {
+            char && char.length ? res += char[0] : res;
+        }
+        return f ? text + res : res + text;
     }
 
-    function padString(text, count, char, f = 1) {
-        var res = text;
-        if (getFlagStatus(f)) {
-            for (var i = 0; i < count - text.length; i++) {
-                res += char;
-            }
-            return res;
-        } else {
-            res = '';
-            for (var i = 0; i < count - text.length; i++) {
-                res += char;
-            }
-            return res + text;
-        }
-    }
 </script>
