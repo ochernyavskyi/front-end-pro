@@ -27,7 +27,7 @@
             case '/':
                 return res = x / y;
             default:
-                alert('Undefined operation');
+                return console.log('Undefined operation');
         }
     }
 
@@ -39,6 +39,7 @@
         for (var i = 0; i < string.length; i++) {
             if (string[i] == symbol) {
                 res = true;
+                break;
             }
         }
         return res;
