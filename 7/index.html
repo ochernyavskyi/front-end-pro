@@ -1,0 +1,38 @@
+<script>
+
+    // Task 1
+
+    function userMap(arr, func) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            newArr[newArr.length] = func(arr[i]);
+        }
+        return newArr;
+    }
+
+
+    // Task 2
+
+    function userFilter(arr, func) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (func(arr[i])) {
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        return newArr;
+    }
+
+
+    // Task 3
+
+    function userGroup(data) {
+        var result = data.reduce(function (initObj, dataObj) {
+            initObj[dataObj.date] = initObj[dataObj.date] || [];
+            initObj[dataObj.date].push(dataObj.msg);
+            return initObj;
+        }, {});
+        return result;
+    }
+
+</script>
