@@ -1,0 +1,34 @@
+<script>
+
+    // Task 1
+
+    function getValues(object) {
+        var newarr = [];
+        for (key in object) {
+            newarr.push(object[key]);
+        }
+        return newarr;
+    }
+
+    // Task 2
+
+    function getKeys(object) {
+        var newarr = [];
+        for (key in object) {
+            newarr.push(key);
+        }
+        return newarr;
+    }
+
+    // Task 3
+
+    function getEntries(object) {
+        var newarr = [];
+        for (key in object) {
+            newarr.push([key, object[key]]);
+        }
+        return newarr;
+    }
+
+
+</script>
