@@ -1,0 +1,41 @@
+<script>
+
+    let toDoList = {
+        id: null,
+        textnote: null,
+        status: null,
+
+        createTask: function (textnote) {
+            if (textnote) {
+                this.id = Date.now();
+                this.textnote = textnote;
+                this.status = false;
+            } else return 'Text is empty';
+        },
+
+        deleteTask: function deleteTask(id) {
+            if (this.id == id) {
+                delete this.id;
+                delete this.textnote;
+                delete this.status;
+            }
+        },
+
+        editTask: function (id, newText) {
+            if (this.id == id && newText) {
+                this.textnote = newText;
+            } else return 'Can not be empty';
+        },
+
+        setStatus: function (id) {
+            if (this.id == id) {
+                this.status = !this.status;
+            }
+        }
+
+    }
+
+    Object.freeze(toDoList);
+
+
+</script>
