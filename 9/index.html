@@ -1,38 +1,38 @@
 <script>
 
     let toDoList = {
-        id: null,
-        textNote: null,
-        status: null,
+        noteStorage: [],
 
         createTask: function (textNote) {
             if (textNote) {
-                this.id = Date.now();
-                this.textNote = textNote;
-                this.status = false;
-            } else return 'Text is empty';
+                this.noteStorage.push({'id': Date.now(), 'textNote': textNote, 'status': false});
+            }
+            ;
         },
 
         deleteTask: function deleteTask(id) {
-            if (this.id == id) {
-                delete this.id;
-                delete this.textNote;
-                delete this.status;
+            for (let i = 0; i < this.noteStorage.length; i++) {
+                if (this.noteStorage[i].id == id) {
+                    this.noteStorage.splice(i, 1);
+                }
             }
         },
 
         editTask: function (id, newText) {
-            if (this.id == id && newText) {
-                this.textNote = newText;
-            } else return 'Can not be empty';
+            for (let i = 0; i < this.noteStorage.length; i++) {
+                if (this.noteStorage[i].id == id && newText) {
+                    this.noteStorage[i].textNote = newText;
+                }
+            }
         },
 
         setStatus: function (id) {
-            if (this.id == id) {
-                this.status = !this.status;
+            for (let i = 0; i < this.noteStorage.length; i++) {
+                if (this.noteStorage[i].id == id) {
+                    this.noteStorage[i].status = !this.status;
+                }
             }
         }
-
     }
 
     Object.freeze(toDoList);
