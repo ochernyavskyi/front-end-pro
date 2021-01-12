@@ -3,9 +3,9 @@
     let toDoList = {
         noteStorage: [],
 
-        createTask: function (id, textNote) {
+        createTask: function (textNote) {
             if (textNote) {
-                this.noteStorage.push({'id': id, 'textNote': textNote, 'status': false});
+                this.noteStorage.push({'id': Date.now(), 'textNote': textNote, 'status': false});
             }
             ;
         },
