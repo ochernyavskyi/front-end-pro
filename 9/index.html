@@ -3,35 +3,51 @@
     let toDoList = {
         noteStorage: [],
 
-        createTask: function (textNote) {
+        createTask: function (id, textNote) {
             if (textNote) {
-                this.noteStorage.push({'id': Date.now(), 'textNote': textNote, 'status': false});
+                this.noteStorage.push({'id': id, 'textNote': textNote, 'status': false});
             }
             ;
         },
 
         deleteTask: function deleteTask(id) {
-            for (let i = 0; i < this.noteStorage.length; i++) {
-                if (this.noteStorage[i].id == id) {
-                    this.noteStorage.splice(i, 1);
-                }
-            }
+            this.noteStorage = this.noteStorage.filter(function (note) {
+                return note.id !== id;
+            });
         },
+
+        //     for (let i = 0; i < this.noteStorage.length; i++) {
+        //         if (this.noteStorage[i].id == id) {
+        //             this.noteStorage.splice(i, 1);
+        //         }
+        //     }
+        // },
 
         editTask: function (id, newText) {
-            for (let i = 0; i < this.noteStorage.length; i++) {
-                if (this.noteStorage[i].id == id && newText) {
-                    this.noteStorage[i].textNote = newText;
+            this.noteStorage.forEach(function (note) {
+                if (note.id === id) {
+                    note.textNote = newText;
                 }
-            }
+            });
         },
 
+        //     for (let i = 0; i < this.noteStorage.length; i++) {
+        //         if (this.noteStorage[i].id == id && newText) {
+        //             this.noteStorage[i].textNote = newText;
+        //         }
+        //     }
+        // },
+
         setStatus: function (id) {
-            for (let i = 0; i < this.noteStorage.length; i++) {
-                if (this.noteStorage[i].id == id) {
-                    this.noteStorage[i].status = !this.status;
+            this.noteStorage.forEach(function (note) {
+                if (note.id === id) {
+                    note.status = !note.status;
                 }
-            }
+            })
+            // for (let i = 0; i < this.noteStorage.length; i++) {
+            //     if (this.noteStorage[i].id == id) {
+            //         this.noteStorage[i].status = !this.noteStorage[i].status;
+            //     }
         }
     }
 
