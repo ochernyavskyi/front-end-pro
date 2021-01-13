@@ -1,0 +1,63 @@
+<script>
+
+    let toDoList = {
+        noteStorage: [],
+
+        createTask: function (textNote) {
+            if (textNote && !this.checkUniq(textNote)) {
+                this.noteStorage.push({'id': Date.now(), 'textNote': textNote, 'status': false});
+            }
+        },
+
+        checkUniq(textNote) {
+            let result = false;
+            this.noteStorage.forEach(function (note) {
+                if (note.textNote == textNote) {
+                    result = true;
+                }
+            })
+            return result;
+        },
+
+        deleteTask: function deleteTask(id, del) {
+            if (del) {
+                this.noteStorage = this.noteStorage.filter(function (note) {
+                    return note.id !== id;
+                });
+            }
+        },
+
+        editTask: function (id, newText, edit) {
+            if (edit) {
+            }
+            this.noteStorage.forEach(function (note) {
+                if (note.id === id) {
+                    note.textNote = newText;
+                }
+            });
+        },
+
+
+
+        setStatus: function (id) {
+            this.noteStorage.forEach(function (note) {
+                if (note.id === id) {
+                    note.status = !note.status;
+                }
+            })
+                   },
+
+        getReport() {
+            let total = this.noteStorage.length;
+            let inProgress = this.noteStorage.filter(function (note) {
+                return note.status === false;
+            }).length;
+            let report = {'total: ': total, 'completed: ': total - inProgress, 'in progress: ': inProgress};
+            return report;
+        }
+    }
+
+    Object.freeze(toDoList);
+
+
+</script>
