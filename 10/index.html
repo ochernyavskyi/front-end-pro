@@ -1,63 +1,68 @@
 <script>
 
+    const CONFIRM_ACTIONS = {
+        'delete': 'Are U sure to delete',
+        'update': 'Are U sure to update'
+    }
+
+
+    const confirmAction = (operation) => {
+        return confirm(operation);
+    };
+
+
     let toDoList = {
         noteStorage: [],
 
-        createTask: function (textNote) {
+        createTask(textNote) {
             if (textNote && !this.checkUniq(textNote)) {
                 this.noteStorage.push({'id': Date.now(), 'textNote': textNote, 'status': false});
             }
         },
 
         checkUniq(textNote) {
-            let result = false;
-            this.noteStorage.forEach(function (note) {
-                if (note.textNote == textNote) {
-                    result = true;
-                }
-            })
-            return result;
+            return this.noteStorage.some((note) =>
+                note.textNote == textNote);
         },
 
-        deleteTask: function deleteTask(id, del) {
-            if (del) {
-                this.noteStorage = this.noteStorage.filter(function (note) {
+        deleteTask(id, callback) {
+            const isConfirm = callback(CONFIRM_ACTIONS.delete)
+            console.log(isConfirm);
+            if (isConfirm) {
+                this.noteStorage = this.noteStorage.filter((note) => {
                     return note.id !== id;
                 });
             }
         },
 
-        editTask: function (id, newText, edit) {
-            if (edit) {
+        editTask(id, newText, callback) {
+            const isConfirm = callback(CONFIRM_ACTIONS.update);
+            if (isConfirm) {
+                this.noteStorage.forEach((note) => {
+                    if (note.id === id) {
+                        note.textNote = newText;
+                    }
+                });
             }
-            this.noteStorage.forEach(function (note) {
-                if (note.id === id) {
-                    note.textNote = newText;
-                }
-            });
         },
 
 
-
-        setStatus: function (id) {
-            this.noteStorage.forEach(function (note) {
+        setStatus(id) {
+            this.noteStorage.forEach((note) => {
                 if (note.id === id) {
                     note.status = !note.status;
                 }
             })
-                   },
+        },
 
         getReport() {
             let total = this.noteStorage.length;
-            let inProgress = this.noteStorage.filter(function (note) {
+            let inProgress = this.noteStorage.filter((note) => {
                 return note.status === false;
             }).length;
             let report = {'total: ': total, 'completed: ': total - inProgress, 'in progress: ': inProgress};
             return report;
         }
     }
-
-    Object.freeze(toDoList);
-
 
 </script>
