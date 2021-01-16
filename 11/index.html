@@ -1,0 +1,9 @@
+<script>
+
+    const userBind = (customFunction, context, ...parameters) => {
+        return (...args) => {
+            customFunction.call(context, ...parameters.concat(args))
+        }
+    }
+
+</script>
