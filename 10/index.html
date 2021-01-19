@@ -27,7 +27,6 @@
 
         deleteTask(id, callback) {
             const isConfirm = callback(CONFIRM_ACTIONS.delete)
-            console.log(isConfirm);
             if (isConfirm) {
                 this.noteStorage = this.noteStorage.filter((note) => {
                     return note.id !== id;
@@ -56,11 +55,11 @@
         },
 
         getReport() {
-            let total = this.noteStorage.length;
-            let inProgress = this.noteStorage.filter((note) => {
+            const total = this.noteStorage.length;
+            const inProgress = this.noteStorage.filter((note) => {
                 return note.status === false;
             }).length;
-            let report = {'total: ': total, 'completed: ': total - inProgress, 'in progress: ': inProgress};
+            const report = {'total: ': total, 'completed: ': total - inProgress, 'in progress: ': inProgress};
             return report;
         }
     }
