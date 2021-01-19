@@ -1,15 +1,12 @@
 <script>
 
-    const CONFIRM_ACTIONS = {
-        'delete': 'Are U sure to delete',
-        'update': 'Are U sure to update'
-    }
-
-
-    const confirmAction = (operation) => {
-        return confirm(operation);
+    const deleteAction = () => {
+        return confirm('Are U sure to delete?');
     };
 
+    const updateAction = () => {
+        return confirm('Are U sure to update?');
+    };
 
     let toDoList = {
         noteStorage: [],
@@ -26,8 +23,7 @@
         },
 
         deleteTask(id, callback) {
-            const isConfirm = callback(CONFIRM_ACTIONS.delete)
-            if (isConfirm) {
+            if (callback()) {
                 this.noteStorage = this.noteStorage.filter((note) => {
                     return note.id !== id;
                 });
@@ -35,23 +31,20 @@
         },
 
         editTask(id, newText, callback) {
-            const isConfirm = callback(CONFIRM_ACTIONS.update);
-            if (isConfirm) {
-                this.noteStorage.forEach((note) => {
-                    if (note.id === id) {
-                        note.textNote = newText;
-                    }
+            if (callback()) {
+                const index = this.noteStorage.findIndex((el) => {
+                    return el.id === id;
                 });
+                this.noteStorage[index].text = newText;
             }
         },
 
 
         setStatus(id) {
-            this.noteStorage.forEach((note) => {
-                if (note.id === id) {
-                    note.status = !note.status;
-                }
-            })
+            const index = this.noteStorage.findIndex((el) => {
+                return el.id === id;
+            });
+            this.noteStorage[index].status = !this.noteStorage[index].status
         },
 
         getReport() {
