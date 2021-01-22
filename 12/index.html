@@ -1,0 +1,41 @@
+<script>
+
+    // Task 1
+
+    sumFunc = (x) => {
+        let sum = 0;
+        return (x) => {
+            return sum = sum + x;
+        }
+    }
+
+
+    //Task 2
+
+    function createCounter() {
+        let obj = {
+            'count': 0,
+            'start': 0,
+            'step': 0,
+            reset: () => {
+                this.start = 0;
+                this.step = 0;
+                this.count = 0;
+            }
+        };
+        return (start = 0, step = 0, reset = false) => {
+            if (reset) {
+                obj.reset();
+                return null;
+            }
+            if (step !== 0 && start !== 0) {
+                obj.start = start;
+                obj.step = step;
+                return obj.count = start + step;
+            } else {
+                return obj.count = obj.count + obj.step;
+            }
+        }
+    }
+
+</script>
