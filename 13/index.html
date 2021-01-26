@@ -1,18 +1,16 @@
 <script>
 
-    polindrom = (num) => {
-        const object = {
-            'result': null,
-            'step': 1
-        }
-        let reverse = Number(num.toString().split('').reverse().join(''));
-        let sum = num + reverse;
-        while (sum !== Number(sum.toString().split('').reverse().join(''))) {
+    polindrom = (num, object = {
+        'result': null,
+        'step': 0
+    }) => {
+        if (num == Number(num.toString().split('').reverse().join(''))) {
+            return object;
+        } else {
             object.step++;
-            sum = sum + Number(sum.toString().split('').reverse().join(''));
+            object.result = num + Number(num.toString().split('').reverse().join(''));
+            return polindrom(object.result, object);
         }
-        object.result = sum;
-        return object;
     }
 
 </script>
