@@ -2,7 +2,7 @@
 
     // Task 1
 
-    sumFunc = (x) => {
+    const sumFunc = () => {
         let sum = 0;
         return (x) => {
             return sum = sum + x;
@@ -12,29 +12,18 @@
 
     //Task 2
 
-    function createCounter() {
-        let obj = {
-            'count': 0,
-            'start': 0,
-            'step': 0,
-            reset: () => {
-                this.start = 0;
-                this.step = 0;
-                this.count = 0;
-            }
-        };
-        return (start = 0, step = 0, reset = false) => {
+    const createCounter = (start, st) => {
+        let step = st;
+        let result = start;
+        reset = () => {
+            step = 0;
+            result = 0;
+        }
+        return (reset) => {
             if (reset) {
-                obj.reset();
-                return null;
+                this.reset();
             }
-            if (step !== 0 && start !== 0) {
-                obj.start = start;
-                obj.step = step;
-                return obj.count = start + step;
-            } else {
-                return obj.count = obj.count + obj.step;
-            }
+            return (result += step);
         }
     }
 

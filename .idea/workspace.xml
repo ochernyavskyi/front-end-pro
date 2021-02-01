@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="237c0379-eaad-4489-a33c-9f594e115329" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/10/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/10/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/11/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/11/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/12/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/13/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/13/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/HomeWork.txt" beforeDir="false" afterPath="$PROJECT_DIR$/2/HomeWork.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/5/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/6/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/6/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/7/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/8/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/9/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nk0zi67TdU0Ft7MYGUAy6ZGtIc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="237c0379-eaad-4489-a33c-9f594e115329" name="Default Changelist" comment="" />
+      <created>1611919048619</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611919048619</updated>
+      <workItem from="1611919050425" duration="72000" />
+      <workItem from="1611919196570" duration="72000" />
+      <workItem from="1611919320994" duration="23000" />
+      <workItem from="1611919356785" duration="24000" />
+      <workItem from="1611919401322" duration="642000" />
+      <workItem from="1611920070518" duration="94000" />
+      <workItem from="1611920199483" duration="44000" />
+      <workItem from="1611920556194" duration="2848000" />
+      <workItem from="1611923475166" duration="1680000" />
+      <workItem from="1611936861942" duration="282000" />
+      <workItem from="1612189021137" duration="6307000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
