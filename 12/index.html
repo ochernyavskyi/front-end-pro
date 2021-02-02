@@ -13,17 +13,17 @@
     //Task 2
 
     const createCounter = (start, st) => {
-        let step = st;
-        let result = start;
-        reset = () => {
-            step = 0;
-            result = 0;
+        this.step = st;
+        this.result = start;
+        this.reset = () => {
+            this.step = 0;
+            this.result = 0;
         }
         return (reset) => {
             if (reset) {
                 this.reset();
             }
-            return (result += step);
+            return (this.result += this.step);
         }
     }
 
