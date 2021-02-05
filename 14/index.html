@@ -25,25 +25,24 @@
     // Task 2
 
     const myBinarySearch = (data, target, start, end) => {
-        if (end < 1) {
-            return data[0];
+
+        if (start >= end || end < 1) {
+            return -1
         }
-        const middle = Math.floor(start + (end - start) / 2);
-        if (target == data[middle]) return data[middle];
-        if (end - 1 === start)
-            if (Math.abs(data[start] - target) > Math.abs(data[end] - target)) {
-                return data[end];
-            } else {
-                return data[start];
-            }
+        const middle = Math.floor((start + end) / 2);
+
+        if (target === data[middle]) {
+            return middle
+        }
         if (target > data[middle])
-            return myBinarySearch(data, target, middle, end);
+            return myBinarySearch(data, target, middle + 1, end);
         if (target < data[middle])
-            return myBinarySearch(data, target, start, middle);
+            return myBinarySearch(data, target, start, middle - 1);
     };
 
-    // const data = [1, 2, 3, 4, 6, 7, 8, 9];
-    // let result = myBinarySearch(data, 2 , 0, data.length - 1);
-    // console.log(result);
+    const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let result = myBinarySearch(data, 9, 0, data.length);
+    console.log(result);
+
 
 </script>
