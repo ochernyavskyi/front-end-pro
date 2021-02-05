@@ -1,0 +1,49 @@
+<script>
+
+    // Task1
+
+    const customReverse = (str) => {
+        if (str === "")
+            return "";
+        else
+            return customReverse(str.substr(1)) + str.charAt(0);
+    }
+
+
+    // Task 1 (2nd variant)
+
+    const myReverse = (str, arr = []) => {
+        if (arr.length === str.length) {
+            return arr.join('');
+        } else {
+            arr.unshift(str.charAt(arr.length));
+            return myReverse(str, arr);
+        }
+    }
+
+
+    // Task 2
+
+    const myBinarySearch = (data, target, start, end) => {
+        if (end < 1) {
+            return data[0];
+        }
+        const middle = Math.floor(start + (end - start) / 2);
+        if (target == data[middle]) return data[middle];
+        if (end - 1 === start)
+            if (Math.abs(data[start] - target) > Math.abs(data[end] - target)) {
+                return data[end];
+            } else {
+                return data[start];
+            }
+        if (target > data[middle])
+            return myBinarySearch(data, target, middle, end);
+        if (target < data[middle])
+            return myBinarySearch(data, target, start, middle);
+    };
+
+    // const data = [1, 2, 3, 4, 6, 7, 8, 9];
+    // let result = myBinarySearch(data, 2 , 0, data.length - 1);
+    // console.log(result);
+
+</script>

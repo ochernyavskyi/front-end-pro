@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="237c0379-eaad-4489-a33c-9f594e115329" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/1/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/10/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/10/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/11/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/11/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/12/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/13/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/13/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2/HomeWork.txt" beforeDir="false" afterPath="$PROJECT_DIR$/2/HomeWork.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/5/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/6/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/7/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/8/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/9/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/9/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +16,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nk0zi67TdU0Ft7MYGUAy6ZGtIc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,6 +50,10 @@
       <workItem from="1611923475166" duration="1680000" />
       <workItem from="1611936861942" duration="282000" />
       <workItem from="1612189021137" duration="6307000" />
+      <workItem from="1612283541075" duration="6513000" />
+      <workItem from="1612438860524" duration="5571000" />
+      <workItem from="1612472980253" duration="9000" />
+      <workItem from="1612534258265" duration="1159000" />
     </task>
     <servers />
   </component>
