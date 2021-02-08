@@ -16,13 +16,13 @@
         },
 
         checkArrayLength: function (arr) {
-            if (arr > 30) {
+            if (arr.length > 30) {
                 throw new Error('The maximum amount of  records reached ')
             }
         },
 
         presence: function (value) {
-            this.checkArrayLength(this.presentArray.length);
+            this.checkArrayLength(this.presentArray);
             let i = 0;
             while (typeof this.presentArray[i] === 'boolean') {
                 i++;
@@ -39,7 +39,7 @@
         },
 
         mark: function (value) {
-            this.checkArrayLength(this.scoreArray.length);
+            this.checkArrayLength(this.scoreArray);
             let i = 0;
             while (typeof this.scoreArray[i] === 'number') {
                 i++;
