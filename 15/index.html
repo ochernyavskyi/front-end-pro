@@ -4,10 +4,9 @@
         this.name = name;
         this.surname = surname;
         this.year = year;
-        this.presentArray = [];
-        this.scoreArray = [];
+        this.presentArray = new Array(30);
+        this.scoreArray = new Array(30);
     }
-
 
     Student.prototype = {
         constructor: Student.prototype.constructor,
@@ -16,34 +15,33 @@
             return (new Date).getFullYear() - this.year;
         },
 
-        get present() {
-            if (this.presentArray.length == 30) {
+        checkArrayLength: function (arr) {
+            if (arr > 30) {
                 throw new Error('The maximum amount of  records reached ')
             }
+        },
+
+        presence: function (value) {
+            this.checkArrayLength(this.presentArray.length);
             let i = 0;
-            while (typeof this.presentArray[i] == 'boolean') {
+            while (typeof this.presentArray[i] === 'boolean') {
                 i++;
             }
-            this.presentArray[i] = true;
+            value === true ? this.presentArray[i] = true : this.presentArray[i] = false;
+        },
+
+        get present() {
+            this.presence(true);
         },
 
         get absent() {
-            if (this.presentArray.length == 30) {
-                throw new Error('The maximum amount of  records reached ')
-            }
-            let i = 0;
-            while (typeof this.presentArray[i] == 'boolean') {
-                i++;
-            }
-            this.presentArray[i] = false;
+            this.presence(false);
         },
 
         mark: function (value) {
-            if (this.scoreArray.length == 30) {
-                throw new Error('The maximum amount of  records reached ')
-            }
+            this.checkArrayLength(this.scoreArray.length);
             let i = 0;
-            while (typeof this.scoreArray[i] == 'number') {
+            while (typeof this.scoreArray[i] === 'number') {
                 i++;
             }
             this.scoreArray[i] = value;
@@ -68,14 +66,14 @@
         }
     }
 
-    //     const ivan = new Student('ivan', 'ivanov', 1980);
-    //     const pavel = new Student('pavel', 'bykov', 1985);
+    // const ivan = new Student('ivan', 'ivanov', 1980);
+    // const pavel = new Student('pavel', 'bykov', 1985);
     // console.log(ivan);
     // console.log(pavel);
     // console.log(ivan.age);
     // console.log(pavel.age);
     //
-    // ivan.present;
+    // ivan.absent;
     // ivan.present;
     // ivan.present;
     // ivan.present;
@@ -99,6 +97,6 @@
     // pavel.mark(7);
     //
     // console.log(ivan.summary);
-    console.log(pavel.summary);
+    // console.log(pavel.summary);
 
 </script>
