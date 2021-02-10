@@ -16,19 +16,41 @@
         },
 
         checkArrayLength: function (arr) {
-            if (arr.length > 30) {
+            const days = 29;
+            if (typeof arr[days] === 'boolean' || typeof arr[days] === 'number') {
                 throw new Error('The maximum amount of  records reached ')
             }
         },
 
         presence: function (value) {
             this.checkArrayLength(this.presentArray);
-            let i = 0;
-            while (typeof this.presentArray[i] === 'boolean') {
-                i++;
-            }
-            value === true ? this.presentArray[i] = true : this.presentArray[i] = false;
+            // Variant 1
+            // let i = 0;
+            // while (typeof this.presentArray[i] === 'boolean') {
+            //     i++;
+            // }
+            // value === true ? this.presentArray[i] = true : this.presentArray[i] = false;
+            // },
+
+            // Variant 2
+            // const res = this.presentArray.filter((item) =>{
+            //     return item !== undefined;
+            // });
+            // value === true ? this.presentArray[res.length] = true : this.presentArray[res.length] = false;
+            // },
+
+            // // Variant 3
+            // const arrayIndex = this.presentArray.reduce((index) => {
+            //     return index + 1;
+            // }, 0);
+            // value === true ? this.presentArray[arrayIndex] = true : this.presentArray[arrayIndex] = false;
+            // },
+
+            // Variant 4
+            const arrayIndex = this.presentArray.filter(() => Boolean).length;
+            value === true ? this.presentArray[arrayIndex] = true : this.presentArray[arrayIndex] = false;
         },
+
 
         get present() {
             this.presence(true);
@@ -40,11 +62,20 @@
 
         mark: function (value) {
             this.checkArrayLength(this.scoreArray);
-            let i = 0;
-            while (typeof this.scoreArray[i] === 'number') {
-                i++;
-            }
-            this.scoreArray[i] = value;
+            // Variant 1
+
+            // let i = 0;
+            // while (typeof this.scoreArray[i] === 'number') {
+            //     i++;
+            // }
+            // this.scoreArray[i] = value;
+            // },
+
+            //     Variant 2
+            const res = this.scoreArray.filter((item) => {
+                return item !== undefined;
+            });
+            this.scoreArray[res.length] = value;
         },
 
         get summary() {
@@ -66,7 +97,7 @@
         }
     }
 
-    // const ivan = new Student('ivan', 'ivanov', 1980);
+    const ivan = new Student('ivan', 'ivanov', 1980);
     // const pavel = new Student('pavel', 'bykov', 1985);
     // console.log(ivan);
     // console.log(pavel);
@@ -96,7 +127,7 @@
     // pavel.mark(7);
     // pavel.mark(7);
     //
-    // console.log(ivan.summary);
+    console.log(ivan.summary);
     // console.log(pavel.summary);
 
 </script>

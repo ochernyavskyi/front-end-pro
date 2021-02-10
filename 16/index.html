@@ -1,6 +1,16 @@
 <script>
     let arr = new Array(30);
 
-    console.log(arr.length);x
+    arr[0] = false;
+    arr[1] = false;
+    arr[2] = false;
+    arr[3] = false;
+    //
+    let res = arr.reduce((previousValue, item,  index) => {
+
+        return index + 1;
+    });
+
+    console.log(res);
 
 </script>
