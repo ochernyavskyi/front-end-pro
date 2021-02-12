@@ -1,21 +1,83 @@
-const store = new Map();
+class Student {
+    #_presentArray = new Array(30);
+    #_scoreArray = new Array(30);
 
-function* fib  (value) {
-    if (store.has(value)) {
-        return store.get(value);
+    constructor(name, surname, year) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
     }
-    let result = 0;
-    for (let i = 1; i <= value; i++) {
-        result += i;
-        yield store.set(i, result);
-    }
-    store.set(value, result);
-    return result;
 
+    set name(value) {
+        if (value.length === 0) {
+            throw new Error('Name can not be empty')
+        }
+        this._name = value;
+    }
+
+    set surname(value) {
+        if (value.length === 0) {
+            throw new Error('Surname can not be empty')
+        }
+        this._surname = value;
+    }
+
+    set year(value) {
+        if (value.length === 0 || typeof value != "number") {
+            throw new Error('Year can not be empty')
+        }
+        this._year = value;
+    }
+
+    get age() {
+        return (new Date).getFullYear() - this.year;
+    }
+
+    #_checkArrayLength(arr, days = 29) {
+        if (typeof arr[days] === 'boolean' || typeof arr[days] === 'number') {
+            throw new Error('The maximum amount of  records reached ')
+        }
+    }
+
+    presence(value) {
+        this.#_checkArrayLength(this.#_presentArray);
+        const arrayIndex = this.#_presentArray.filter(() => Boolean).length;
+        value === true ? this.#_presentArray[arrayIndex] = true : this.#_presentArray[arrayIndex] = false;
+    }
+
+    get present() {
+        this.presence(true);
+    }
+
+    get absent() {
+        this.presence(false);
+    }
+
+    mark(value) {
+        this.#_checkArrayLength(this.#_scoreArray);
+        const res = this.#_scoreArray.filter((item) => {
+            return item !== undefined;
+        });
+        this.#_scoreArray[res.length] = value;
+    }
+
+    get summary() {
+        const notice = {
+            good: 'Ути какой молодчинка',
+            norm: 'Норм, но можно лучше',
+            bad: 'Редиска'
+        }
+        let avrMark = 0;
+        avrMark = this.#_scoreArray.reduce((sum, current) => sum + current, 0) / this.#_scoreArray.length;
+        let avrPresent = 0;
+        avrPresent = this.#_presentArray.reduce((sum, current) => sum + current, 0) / this.#_presentArray.length;
+        if (avrMark > 9 && avrPresent > 0.9) {
+            return notice.good;
+        } else if (avrMark < 9 && avrPresent < 0.9) {
+            return notice.bad;
+        } else if (avrMark < 9 || avrPresent < 0.9)
+            return notice.norm;
+    }
 }
 
-let a = fib(3);
-console.log (a.next());
-console.log (a.next());
-console.log (a.next());
-console.log (a.next());
+const ivan = new Student('ivan', 'ivanov', 1980);
