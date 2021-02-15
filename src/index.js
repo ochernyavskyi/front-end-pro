@@ -1,32 +1,36 @@
 class Student {
+
     #_presentArray = new Array(30);
     #_scoreArray = new Array(30);
+    #_name;
+    #_surname;
+    #_year;
 
     constructor(name, surname, year) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
+        this.#_name = this.setName(name);
+        this.#_surname = this.setSurname(surname);
+        this.#_year = this.setYear(year);
     }
 
-    set name(value) {
+    setName(value) {
         if (value.length === 0) {
             throw new Error('Name can not be empty')
         }
-        this._name = value;
+        return value;
     }
 
-    set surname(value) {
+    setSurname(value) {
         if (value.length === 0) {
             throw new Error('Surname can not be empty')
         }
-        this._surname = value;
+        return value;
     }
 
-    set year(value) {
+    setYear(value) {
         if (value.length === 0 || typeof value != "number") {
             throw new Error('Year can not be empty')
         }
-        this._year = value;
+        return value;
     }
 
     get age() {
