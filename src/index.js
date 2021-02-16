@@ -7,26 +7,30 @@ class Student {
     #_year;
 
     constructor(name, surname, year) {
-        this.#_name = this.setName(name);
-        this.#_surname = this.setSurname(surname);
-        this.#_year = this.setYear(year);
+        this.#_name = name(name);
+        this.#_surname = surname;
+        this.#_year = year;
     }
 
-    setName(value) {
+    get name() {
+        return this.#_name
+    }
+
+    set name(value) {
         if (value.length === 0) {
             throw new Error('Name can not be empty')
         }
-        return value;
+        this.#_name = value
     }
 
-    setSurname(value) {
+    set surname(value) {
         if (value.length === 0) {
             throw new Error('Surname can not be empty')
         }
         return value;
     }
 
-    setYear(value) {
+    set year(value) {
         if (value.length === 0 || typeof value != "number") {
             throw new Error('Year can not be empty')
         }
@@ -83,5 +87,7 @@ class Student {
             return notice.norm;
     }
 }
+
+var test = 0;
 
 const ivan = new Student('ivan', 'ivanov', 1980);
