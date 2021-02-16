@@ -7,38 +7,37 @@ class Student {
     #_year;
 
     constructor(name, surname, year) {
-        this.#_name = name(name);
-        this.#_surname = surname;
-        this.#_year = year;
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
     }
 
-    get name() {
-        return this.#_name
-    }
 
     set name(value) {
         if (value.length === 0) {
             throw new Error('Name can not be empty')
         }
-        this.#_name = value
+        this.#_name = value;
     }
 
     set surname(value) {
         if (value.length === 0) {
             throw new Error('Surname can not be empty')
         }
-        return value;
+        this.#_surname = value;
+
     }
 
     set year(value) {
         if (value.length === 0 || typeof value != "number") {
             throw new Error('Year can not be empty')
         }
-        return value;
+        this.#_year = value;
+
     }
 
     get age() {
-        return (new Date).getFullYear() - this.year;
+        return (new Date).getFullYear() - this.#_year;
     }
 
     #_checkArrayLength(arr, days = 29) {
@@ -53,11 +52,11 @@ class Student {
         value === true ? this.#_presentArray[arrayIndex] = true : this.#_presentArray[arrayIndex] = false;
     }
 
-    get present() {
+    present() {
         this.presence(true);
     }
 
-    get absent() {
+    absent() {
         this.presence(false);
     }
 
@@ -69,7 +68,7 @@ class Student {
         this.#_scoreArray[res.length] = value;
     }
 
-    get summary() {
+    getSummary() {
         const notice = {
             good: 'Ути какой молодчинка',
             norm: 'Норм, но можно лучше',
@@ -88,6 +87,5 @@ class Student {
     }
 }
 
-var test = 0;
 
 const ivan = new Student('ivan', 'ivanov', 1980);
