@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="237c0379-eaad-4489-a33c-9f594e115329" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/15/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/15/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/16/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/16/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/16/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/16/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +15,16 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1nk0zi67TdU0Ft7MYGUAy6ZGtIc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -61,6 +70,15 @@
       <workItem from="1612648702040" duration="2521000" />
       <workItem from="1612772677489" duration="6171000" />
       <workItem from="1612891283206" duration="10429000" />
+      <workItem from="1612994983449" duration="19463000" />
+      <workItem from="1613204835369" duration="7000" />
+      <workItem from="1613376175828" duration="6951000" />
+      <workItem from="1613495656969" duration="4180000" />
+      <workItem from="1613563875035" duration="26192000" />
+      <workItem from="1613738708491" duration="8632000" />
+      <workItem from="1613810724578" duration="15000" />
+      <workItem from="1613968618279" duration="2356000" />
+      <workItem from="1614013857564" duration="16870000" />
     </task>
     <servers />
   </component>

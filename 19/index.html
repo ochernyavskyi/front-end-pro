@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Task 1
+    function myUlLiFunc(array) {
+        const $ulNode = document.createElement('ul');
+        document.body.append($ulNode);
+        for (let i = 0; i < array.length; i++) {
+            if (Array.isArray(array[i])) {
+                const $liNode = document.createElement('li');
+                document.querySelector('ul').append($liNode);
+                document.querySelector(`ul > li:nth-child(${i + 1})`).innerHTML = '<ul></ul>';
+                const newArray = array[i];
+                for (let j = 0; j < newArray.length; j++) {
+                    const $liNode = document.createElement('li');
+                    $liNode.textContent = newArray[j];
+                    document.querySelector(`ul > li:nth-child(${i + 1})`).append($liNode);
+                }
+            } else {
+                const $liNode = document.createElement('li');
+                $liNode.textContent = array[i];
+                document.querySelector('ul').append($liNode);
+            }
+        }
+    }
+
+    const arr = [[0, 0, 0], 1, 2, [2.1, 2.2, 2.3], 4, 5, 6, 7, [7.1, 7.2, 7.3]];
+    myUlLiFunc(arr);
+
+
+    // Task 2
+    const $tableNode = document.createElement('table');
+    $tableNode.setAttribute('border', '1px solid black');
+    document.body.append($tableNode);
+
+    for (let i = 0; i < 10; i++) {
+        const $trNode = document.createElement('tr');
+        document.querySelector("table").append($trNode);
+    }
+    const $trNode = document.querySelectorAll('tr');
+
+    for (let j = 0; j < 10; j++) {
+        for (let k = 1; k <= 10; k++) {
+            const $tdNode = document.createElement('td');
+            $trNode[j].append($tdNode);
+        }
+    }
+
+    const $tdNode = document.querySelectorAll('td');
+    for (let k = 0; k < 100; k++) {
+        $tdNode[k].innerHTML = k + 1;
+    }
+</script>
+</html>
