@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="box shadow radius"></div>
+
+</body>
+<script>
+    function toggleClass($div, newClassName) {
+        const elem = document.querySelector($div);
+        const classesArray = elem.className.split(' ');
+        if (classesArray.includes(newClassName)) {
+            let arr = classesArray.filter(function (className) {
+                return className != newClassName;
+            })
+            elem.className = arr.join(' ');
+        } else {
+            elem.className = elem.className + ' ' + newClassName;
+        }
+    }
+
+    toggleClass('div', 'box');
+
+</script>
+</html>
