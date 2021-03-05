@@ -1,0 +1,30 @@
+h2, h4, h5 {
+    text-align: center;
+}
+
+.newNote, .existedNote, .crud, .summary, .newTextNote {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#createObject {
+    margin-right: 20px;
+}
+
+.main {
+    display: none;
+}
+
+.recorded, .deleted, .updated, .newNoteCategory {
+    display: none;
+    color: red;
+}
+
+.crudSelect {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.crud {
+    margin-right: 20px;
+}
