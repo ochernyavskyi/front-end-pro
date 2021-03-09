@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Task 2</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<script src="three.js"></script>
+<script>
+    const winW = window.innerWidth;
+    const winH = window.innerHeight;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, winW / winH, 0.01, 10);
+    const renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setSize(winW, winH);
+    document.body.appendChild(renderer.domElement);
+    const radius = 4;
+    const height = 5;
+    const geometry = new THREE.CylinderGeometry(0, radius, height, 4, 1)
+    const material = new THREE.MeshNormalMaterial();
+    const pyramid = new THREE.Mesh(geometry, material);
+    scene.add(pyramid);
+    camera.position.z = 10;
+
+    const render = function () {
+        requestAnimationFrame(render);
+        pyramid.rotation.x += 0.01;
+        pyramid.rotation.y += 0.01;
+        renderer.render(scene, camera);
+    };
+
+    render();
+</script>
+</body>
+</html>

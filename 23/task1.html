@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<canvas id="canvas" width="600" height="500"></canvas>
+
+<script>
+    function draw() {
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+
+        ctx.beginPath();
+        ctx.arc(500, 75, 50, 0, Math.PI * 2, true);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(500, 75, 35, Math.PI * .4, Math.PI * .6, false);
+        ctx.moveTo(490, 65);
+        ctx.arc(485, 65, 5, 0, Math.PI * 2, true);
+        ctx.moveTo(525, 65);
+        ctx.arc(520, 65, 5, 0, Math.PI * 2, true);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(500, 200, 75, 0, Math.PI * 2, true);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(500, 375, 100, 0, Math.PI * 2, true);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(500, 175, 8, 0, Math.PI * 2, true);
+        ctx.moveTo(510, 235);
+        ctx.arc(500, 235, 8, 0, Math.PI * 2, true);
+        ctx.moveTo(510, 325);
+        ctx.arc(500, 325, 8, 0, Math.PI * 2, true);
+        ctx.stroke();
+    }
+
+    draw();
+
+</script>
+
+</body>
+</html>
