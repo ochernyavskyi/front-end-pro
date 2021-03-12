@@ -18,21 +18,17 @@
 <h4>Create new note category</h4>
 
 <div class="newNote">
+    <form>
     <input id="newNoteName" type="text">
     <input id="createObject" type="button" value="Create">
+    </form>
     <span class="newNoteCategory">New category created</span>
-
 </div>
 
 <h4>Or select existed note category to begin</h4>
 
 <div class="existedNote">
     <select id="selectExistedNote">
-        <script>
-            for (let i = 0; i < localStorage.length; i++) {
-                $('select').append(`<option>${localStorage.key(i)}</option>`);
-            }
-        </script>
     </select>
     <input id="selectNote" type="button" value="Select">
 </div>
@@ -41,8 +37,10 @@
 <div class="main">
     <div class="newTextNote">
         <h4 class="h4NameCategory">Create new text note</h4>
+        <form>
         <input id="newTextNote" type="text">
         <input id="newTextButton" type="button" value="New text note">
+        </form>
         <span class="recorded">Note has been added</span>
     </div>
 
@@ -50,6 +48,7 @@
     <h4 class="h4CRUD">CRUD</h4>
     <h5>Press refresh button to see all notes</h5>
     <div class="crud">
+        <form>
         <input id="refreshButton" type="button" value="Refresh">
         <div><span>Select Text Note to Modify:</span>
             <select class="crudSelect">
@@ -66,11 +65,14 @@
         <input id="DeleteButton" type="button" value="Delete">
         <span class="deleted">The text note deleted</span>
         <span class="updated">The text note has been updated</span>
+        </form>
     </div>
 
     <div class="summary">
         <h4 class="h4Summary">Additional methods</h4>
+        <form>
         <input id="statistic" type="button" value="Get Statistic">
+        </form>
     </div>
 </div>
 
