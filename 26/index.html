@@ -1,0 +1,67 @@
+<script>
+    const menu = {
+        burger: [
+            {
+                name: '🍔',
+                time: 3000
+            },
+            {
+                name: '🍟',
+                time: 3500
+            },
+            {
+                name: '🍦',
+                time: 3200
+            },
+        ]
+    }
+
+    function order(menuName) {
+        console.log('Start cooking...');
+        const result = [];
+
+
+        function addToArray(item) {
+            result.push(item);
+        }
+
+        function randomizer() {
+            return Boolean(Math.round(Math.random()));
+        }
+
+        function cooking({name, time}) {
+            setTimeout(function () {
+                let isCookedStatus = false;
+                while (isCookedStatus == false) {
+                    isCookedStatus = randomizer();
+                }
+                addToArray({name, isCooked: isCookedStatus});
+            }, time);
+        }
+
+
+        function checkOrder(array) {
+            const intervalID = setInterval(function () {
+                if (result.length === menuName.length) {
+                    console.log('Ready');
+                    const object = {};
+                    array.forEach(function (item, i) {
+                        object[i] = item;
+                    })
+                    clearInterval(intervalID);
+                    for (let i = 0; i < menuName.length; i++) {
+                        object[i]['name'] = menuName[i]['name'];
+                    }
+                    console.log(object);
+                } else {
+                    console.log('Not ready');
+                }
+            }, 1000);
+        }
+
+        menuName.forEach(cooking);
+        checkOrder(result);
+    }
+
+    order(menu.burger);
+</script>
