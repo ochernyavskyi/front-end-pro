@@ -16,52 +16,35 @@
         ]
     }
 
-    function order(menuName) {
+    function order(menuName, orderComplete) {
         console.log('Start cooking...');
         const result = [];
 
+        const getCookingResult = (name, index) => {
+            result[index] = name;
 
-        function addToArray(item) {
-            result.push(item);
+            if (menuName.length === result.filter(Boolean).length) {
+                orderComplete(result);
+            }
         }
+
 
         function randomizer() {
             return Boolean(Math.round(Math.random()));
         }
 
-        function cooking({name, time}) {
+        function cooking({name, time}, index) {
             setTimeout(function () {
-                let isCookedStatus = false;
-                while (isCookedStatus == false) {
-                    isCookedStatus = randomizer();
+                let condition = true;
+                while (condition === false) {
+                    condition = randomizer();
                 }
-                addToArray({name, isCooked: isCookedStatus});
+                getCookingResult({name, status: condition}, index)
             }, time);
-        }
-
-
-        function checkOrder(array) {
-            const intervalID = setInterval(function () {
-                if (result.length === menuName.length) {
-                    console.log('Ready');
-                    const object = {};
-                    array.forEach(function (item, i) {
-                        object[i] = item;
-                    })
-                    clearInterval(intervalID);
-                    for (let i = 0; i < menuName.length; i++) {
-                        object[i]['name'] = menuName[i]['name'];
-                    }
-                    console.log(object);
-                } else {
-                    console.log('Not ready');
-                }
-            }, 1000);
-        }
+        };
 
         menuName.forEach(cooking);
-        checkOrder(result);
     }
 
-    order(menu.burger);
+    order(menu.burger, console.log);
 </script>
