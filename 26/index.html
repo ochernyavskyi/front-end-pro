@@ -19,32 +19,67 @@
     function order(menuName, orderComplete) {
         console.log('Start cooking...');
         const result = [];
-
-        const getCookingResult = (name, index) => {
-            result[index] = name;
-
-            if (menuName.length === result.filter(Boolean).length) {
-                orderComplete(result);
-            }
-        }
-
+        const getCookingResult = (menuItem, index, cb) => {
+            cb(menuItem, index, randomizer());
+        };
 
         function randomizer() {
             return Boolean(Math.round(Math.random()));
         }
 
-        function cooking({name, time}, index) {
-            setTimeout(function () {
-                let condition = true;
-                while (condition === false) {
-                    condition = randomizer();
-                }
-                getCookingResult({name, status: condition}, index)
-            }, time);
+        handler = (menuItem, index, random) => {
+            if (!random) {
+                cooking(menuItem, index);
+            }
+            if (random) {
+                result[index] = {name: menuItem.name, result: random};
+            }
+            if (result.filter(random => random).length === menuName.length) {
+                console.log(result);
+            }
         };
+
+        function cooking(menuItem, index) {
+            setTimeout(function () {
+                let condition = randomizer();
+                getCookingResult(menuItem, index, handler);
+            }, menuItem.time);
+        }
 
         menuName.forEach(cooking);
     }
 
     order(menu.burger, console.log);
+
+    // function order(menuName, orderComplete) {
+    //     console.log('Start cooking...');
+    //     const result = [];
+    //
+    //     const getCookingResult = (name, index) => {
+    //         result[index] = name;
+    //
+    //         if (menuName.length === result.filter(Boolean).length) {
+    //             orderComplete(result);
+    //         }
+    //     }
+    //
+    //
+    //     function randomizer() {
+    //         return Boolean(Math.round(Math.random()));
+    //     }
+    //
+    //     function cooking({name, time}, index) {
+    //         setTimeout(function () {
+    //             let condition = true;
+    //             while (condition === false) {
+    //                 condition = randomizer();
+    //             }
+    //             getCookingResult({name, status: condition}, index)
+    //         }, time);
+    //     };
+
+    // menuName.forEach(cooking);
+    // }
+
+    // order(menu.burger, console.log);
 </script>
