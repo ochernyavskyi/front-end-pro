@@ -1,0 +1,86 @@
+<script>
+
+    const menu = [
+        [
+            {
+                name: '🍔',
+                time: 3000
+            },
+            {
+                name: '🍟',
+                time: 3500
+            },
+            {
+                name: '🍦',
+                time: 3200
+            },
+        ],
+        [
+            {
+                name: 'zz',
+                time: 100,
+            },
+            {
+                name: 'ww',
+                time: 100,
+            },
+            {
+                name: 'qq',
+                time: 200,
+            },
+        ],
+        [
+            {
+                name: 'cc',
+                time: 100,
+            },
+            {
+                name: 'ss',
+                time: 100,
+            },
+            {
+                name: 'rr',
+                time: 200,
+            },
+        ],
+    ];
+
+    function order(menu) {
+        function randomizer() {
+            return Boolean(Math.round(Math.random()));
+        }
+
+        const cookingItem = (el, index, store) => {
+            setTimeout(() => {
+                if (menu.length === store.filter((i) => i).length) {
+                    return Promise.resolve(store);
+                }
+                const isCoocked = randomizer();
+                isCoocked ? (store[index] = el) : cookingItem(el, index, store);
+            }, el.time);
+        };
+
+        const cookMenuNotOrder = (arrayOfMenuItems) => {
+            const cookedMenu = [];
+            arrayOfMenuItems.forEach((el, index) => {
+                return cookingItem(el, index, cookedMenu);
+            });
+            return Promise.all(arrayOfMenuItems).then((r) => r);
+        };
+
+        let arr = menu.map(
+            (el) =>
+                new Promise((r, j) => {
+                    console.log('sss', cookMenuNotOrder(el));
+                    r(cookMenuNotOrder(el));
+                })
+        );
+
+        Promise.all(arr).then((r) => {
+            console.log(r);
+        });
+    }
+
+    order(menu);
+
+</script>
