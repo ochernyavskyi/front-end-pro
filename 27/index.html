@@ -1,86 +1,123 @@
 <script>
-
-    const menu = [
-        [
+    const menu = {
+        burger: [
             {
-                name: '🍔',
-                time: 3000
-            },
-            {
-                name: '🍟',
-                time: 3500
-            },
-            {
-                name: '🍦',
-                time: 3200
-            },
-        ],
-        [
-            {
-                name: 'zz',
+                name: 'burger',
                 time: 100,
             },
             {
-                name: 'ww',
-                time: 100,
+                name: 'fried potato',
+                time: 200,
             },
             {
-                name: 'qq',
+                name: 'ice-cream',
                 time: 200,
             },
         ],
-        [
+        chiken: [
             {
-                name: 'cc',
+                name: '111',
                 time: 100,
             },
             {
-                name: 'ss',
-                time: 100,
+                name: '222',
+                time: 200,
             },
             {
-                name: 'rr',
+                name: '333',
                 time: 200,
             },
         ],
-    ];
+        beef: [
+            {
+                name: '444',
+                time: 100,
+            },
+            {
+                name: '555',
+                time: 200,
+            },
+            {
+                name: '666',
+                time: 200,
+            },
+        ],
+        hottog: [
+            {
+                name: '777',
+                time: 100,
+            },
+            {
+                name: '888',
+                time: 200,
+            },
+            {
+                name: '999',
+                time: 200,
+            },
+        ],
+        sushi: [
+            {
+                name: '11',
+                time: 100,
+            },
+            {
+                name: '12',
+                time: 200,
+            },
+            {
+                name: '13',
+                time: 200,
+            },
+        ],
+    };
 
-    function order(menu) {
-        function randomizer() {
-            return Boolean(Math.round(Math.random()));
-        }
-
-        const cookingItem = (el, index, store) => {
-            setTimeout(() => {
-                if (menu.length === store.filter((i) => i).length) {
-                    return Promise.resolve(store);
-                }
-                const isCoocked = randomizer();
-                isCoocked ? (store[index] = el) : cookingItem(el, index, store);
-            }, el.time);
-        };
-
-        const cookMenuNotOrder = (arrayOfMenuItems) => {
-            const cookedMenu = [];
-            arrayOfMenuItems.forEach((el, index) => {
-                return cookingItem(el, index, cookedMenu);
+    const cooking = (menu) => {
+        const order = (menu) => {
+            const cookFood = (name) => console.log(name);
+            new Promise((resolve, reject) => {
+                const condition = +Math.random().toFixed();
+                setTimeout(() => {
+                    condition ? resolve(name) : reject(name);
+                }, 100);
             });
-            return Promise.all(arrayOfMenuItems).then((r) => r);
+            return Promise.allSettled(menu.map(cookFood));
         };
 
-        let arr = menu.map(
-            (el) =>
-                new Promise((r, j) => {
-                    console.log('sss', cookMenuNotOrder(el));
-                    r(cookMenuNotOrder(el));
-                })
-        );
+        const preparedMenus = [];
+        const cook = (item, i) => {
+            const dishCooking = new Promise((res, rej) => {
+                setTimeout(() => {
+                    const condition = +Math.random().toFixed();
+                    condition ? res({name: item.name, status: 'ready'}) : rej(item);
+                }, item.time);
+            });
+            return dishCooking.then(
+                (res) => {
+                    return res;
+                },
+                (rej) => cook(rej)
+            );
+        };
 
-        Promise.all(arr).then((r) => {
-            console.log(r);
-        });
-    }
+        for (const menuItem in menu) {
+            const cookedDishes = menu[menuItem].map((dish, index) => {
+                return cook(dish, index);
+            });
+            Promise.all(cookedDishes).then((r) => {
+                preparedMenus.push(r);
+                console.log('still cooking...');
+                if (preparedMenus.length === Object.keys(menu).length) {
 
-    order(menu);
-
+                    order(preparedMenus).then((result) => {
+                        const r = result.filter((el) => el.status === 'fulfilled');
+                        r.length >= 3
+                            ? console.log('Order is ready')
+                            : console.log('Something goes wrong with order');
+                    });
+                }
+            });
+        }
+    };
+    cooking(menu);
 </script>
